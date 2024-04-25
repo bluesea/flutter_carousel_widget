@@ -85,6 +85,9 @@ class FlutterCarouselState extends State<FlutterCarousel>
   void didUpdateWidget(covariant FlutterCarousel oldWidget) {
     _carouselState!.options = options;
     _carouselState!.itemCount = widget.itemCount;
+    _carouselState!.realPage = options.enableInfiniteScroll
+        ? _carouselState!.realPage + _carouselState!.initialPage
+        : _carouselState!.initialPage;
 
     /// [_pageController] needs to be re-initialized to respond
     /// to state changes
